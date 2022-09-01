@@ -33,6 +33,9 @@ var noteColorRight = Color.white
 
 var noteSkin = "Default"
 
+var serinateStrum = false
+var noteNoises = false
+
 func _ready():
 	load_settings()
 	update_settings()

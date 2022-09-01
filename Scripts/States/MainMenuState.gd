@@ -4,7 +4,7 @@ export(Array, String) var descriptions
 
 const BUTTON_SCENE = preload("res://Scenes/States/MainMenu/MainMenuButton.tscn")
 # var options = {"story": 3, "freeplay": 1, "options": 2, "donate": 0}
-var options = {"mario forever": 3}
+var options = {"beef serinate": 3}
 
 var optionsOffset = Vector2(50, 220)
 
@@ -20,11 +20,13 @@ func _ready():
 		descriptions = descriptions.duplicate()
 		descriptions.remove(1)
 	options["options"] = 2
+	#options["mecha"] = 4
+	#options["bullet bill"] = 5
 	
 	createMenuObjects()
 	
-	if Conductor.MusicStream.stream.resource_path != "res://Assets/Music/freakyMenu.ogg":
-		Conductor.play_song("res://Assets/Music/freakyMenu.ogg", 102, 1)
+	if (Conductor.MusicStream.stream.resource_path != "res://Assets/Music/freakyMenu.ogg" && Conductor.MusicStream.stream.resource_path != "res://Assets/Music/serinateMenu.ogg"):
+		Conductor.play_song("res://Assets/Music/serinateMenu.ogg", 175, 1)
 
 func _process(_delta):
 	if (choseOption):
@@ -46,10 +48,17 @@ func _process(_delta):
 		selected = 0
 	
 	selected += move
+	$Buttons.offset.y = (selected * 100) * -1
 	$Bar/Description.text = descriptions[selected]
 
-	if selected == 0 || selected == 1:
-		var songName = "Forever-Syndrome" if selected == 0 else 'Forever-Syndrome-Remix'
+	if selected == 0 || selected == 3:
+		var songName = "Beef-Serinate"
+		if selected == 0:
+			songName = "Forever-Syndrome" 
+		elif selected == 1:
+			 songName = 'Forever-Syndrome-Remix'
+		elif selected == 3:
+			songName = 'Beef-Serinate'
 		var score = Conductor.load_score(songName)
 		var fcType = Conductor.load_fc(songName)
 
@@ -110,8 +119,16 @@ func option_logic(name):
 			Main.change_playstate("Forever-Syndrome-Remix", Main.difficulties[2], 1)
 		"bullet bill":
 			Main.change_playstate("Bullet-Time", Main.difficulties[2], 1)
+		"mecha":
+			Main.change_playstate("Mecha-Song", Main.difficulties[2], 1)	
+		"viper tears":
+			Main.change_playstate("Viper-Tears", Main.difficulties[2], 1)						
 		"options":
 			Main.change_scene("res://Scenes/States/OptionsState.tscn")
+		"gallery":
+			Main.change_scene("res://Scenes/States/GalleryState.tscn")	
+		"beef serinate":
+			Main.change_playstate("Beef-Serinate", Main.difficulties[2], 1)		
 		_:
 			Main.change_to_main_menu()
 

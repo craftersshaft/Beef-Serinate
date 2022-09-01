@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/0003.ogg-b3d0ddcff9eea7f2df07bd10573b18fb.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/noteNoises/0003.ogg"
+dest_files=[ "res://.import/0003.ogg-b3d0ddcff9eea7f2df07bd10573b18fb.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -212,8 +212,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Forever Syndrome"
-config/description="i remade fnf in godot
+config/name="FNF: Beef Serinate"
+config/description="i remade fnf in godot < i edited it
 uh"
 run/main_scene="res://Scenes/States/SceneSwitcher.tscn"
 boot_splash/image="res://black.png"

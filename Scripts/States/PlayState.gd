@@ -15,6 +15,7 @@ const HIT_TIMINGS = {"shit": [140, 50, 0.25], "bad": [120, 100, 0.50], "good": [
 # preloading nodes
 const PAUSE_SCREEN = preload("res://Scenes/States/PlayState/PauseMenu.tscn")
 const FOREVER_PAUSE_SCREEN = preload("res://Scenes/States/PlayState/ForeverPauseMenu.tscn")
+const SERINATE_PAUSE_SCREEN = preload("res://Scenes/States/PlayState/SerinatePauseMenu.tscn")
 const GAME_OVER = preload("res://Scenes/States/PlayState/GameOverState.tscn")
 					
 export(String) var rating_path
@@ -45,6 +46,7 @@ export (String) var difficulty = "hard"
 export (float) var speed = 1
 export (bool) var lock_camera = false
 export (bool) var miss_anims = true
+export (Dictionary) var noteNoiseArray;
 
 # player stats
 var score = 0
@@ -117,6 +119,9 @@ func _ready():
 	var _c_beat = Conductor.connect("beat_hit", self, "hud_bop") # connect the beat hit signal to the icon bop
 	connect("event_activated", self, "on_event")
 	
+	if (Settings.noteNoises):
+		Conductor.muteVocals = true
+	
 func _process(_delta):
 	player_input() # handle the players input
 	
@@ -127,8 +132,15 @@ func _process(_delta):
 	# pause the game
 	if (Input.is_action_just_pressed("confirm") && !get_tree().paused):
 		get_tree().paused = true
-		var pauseMenu = PAUSE_SCREEN.instance() if Main.curNoteSkin != "Forever" else FOREVER_PAUSE_SCREEN.instance()
-		get_tree().current_scene.add_child(pauseMenu)
+		if Main.curNoteSkin == "Forever" :
+			var pauseMenu = FOREVER_PAUSE_SCREEN.instance()
+			get_tree().current_scene.add_child(pauseMenu)
+		elif Main.curNoteSkin == "BeefSerinate" :
+			var pauseMenu = SERINATE_PAUSE_SCREEN.instance()
+			get_tree().current_scene.add_child(pauseMenu)
+		else :
+			var pauseMenu = PAUSE_SCREEN.instance() 
+			get_tree().current_scene.add_child(pauseMenu)
 	
 	# process health bar stuff, like positions
 	ui_process(_delta)
@@ -146,6 +158,15 @@ func _process(_delta):
 		usedBot = true
 
 	$HUD/HudElements.scale = lerp($HUD/HudElements.scale, Vector2(1,1), _delta * 5)
+
+func _input(event):
+	# debug shit
+	if (event is InputEventKey):
+		if (event.pressed):
+			match (event.scancode):
+				KEY_7:
+					Main.change_chart_state()
+
 
 func player_input():
 	if (PlayerStrum == null || Settings.botPlay):
@@ -373,6 +394,10 @@ func on_hit(note, timing):
 	if (character != null):
 		var animName = player_sprite(note_type, "")
 		character.play(animName)
+		if (Settings.noteNoises):
+			print(character.name+animName);
+			$SFXPlayer.stream = noteNoiseArray[character.name+animName];
+			$SFXPlayer.play();
 		character.idleTimer = 0.2
 		
 		if (Settings.cameraMovement && !freeCamera && !lock_camera):
@@ -453,8 +478,9 @@ func on_hit(note, timing):
 		create_rating(HIT_TIMINGS.keys().find(rating), timing)
 		
 	emit_signal("note_hit", rating, must_hit, note_type, timing)
-		
-	Conductor.muteVocals = false
+	
+	if (!Settings.noteNoises):
+		Conductor.muteVocals = false
 
 func on_miss(must_hit, note_type, passed = false):
 	var character = EnemyCharacter
@@ -687,7 +713,7 @@ func song_finished_check():
 			if !usedBot:
 				Conductor.save_score(Conductor.songName, score, fcType, 2)
 			
-			var menuSong = load("res://Assets/Music/freakyMenu.ogg")
+			var menuSong = load("res://Assets/Music/serinateMenu.ogg")
 			if (Conductor.MusicStream.stream != menuSong):
 				Conductor.play_song(menuSong, 102, 1)
 			

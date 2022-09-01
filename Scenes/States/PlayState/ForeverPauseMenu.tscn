@@ -339,7 +339,7 @@ region_rect = Rect2( 0, 0, 384, 15 )
 position = Vector2( 792, 306 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 17 )
-frame = 1
+frame = 2
 playing = true
 centered = false
 

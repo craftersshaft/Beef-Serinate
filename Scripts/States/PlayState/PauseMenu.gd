@@ -4,6 +4,7 @@ var playState
 
 var selectedDifficulty = 2
 var selectedSpeed = 1
+export(bool) var shouldTween = false
 
 var inOptions = false
 
@@ -16,8 +17,8 @@ func _ready():
 	#$Tween.interpolate_property(label, "rect_position:y", -100, label.rect_position.y, 1.6, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	#$Tween.interpolate_property(label, "modulate:a", 0, 1, 1.6, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	#$Tween.start()
-	
-	$AnimationPlayer.play("in")
+	if shouldTween:
+		$AnimationPlayer.play("in")
 	
 	$CanvasLayer/PauseMenu/Options/Resume.connect("button_down", self, "resume")
 	$CanvasLayer/PauseMenu/Options/Retry.connect("button_down", playState, "restart_playstate")

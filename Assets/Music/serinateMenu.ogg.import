@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/serinateMenu.ogg-947eb9bbe58e938369577b7a9895f65e.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/serinateMenu.ogg"
+dest_files=[ "res://.import/serinateMenu.ogg-947eb9bbe58e938369577b7a9895f65e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

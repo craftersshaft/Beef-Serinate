@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Scenes/States/PlayState.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Sprites/Stages/Bullet/547.png" type="Texture" id=2]
@@ -17,31 +17,7 @@
 [ext_resource path="res://Assets/Other/Fonts/2_ArcadeFont_Qhytsdakx.ttf" type="DynamicFontData" id=18]
 [ext_resource path="res://Scenes/Stages/Bullet/3.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Stages/Bullet/2.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/6.png" type="Texture" id=21]
 [ext_resource path="res://Scripts/Stages/Bullet/Terrain.gd" type="Script" id=22]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/1.png" type="Texture" id=23]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/2.png" type="Texture" id=24]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/3.png" type="Texture" id=25]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/4.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/5.png" type="Texture" id=27]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/12.png" type="Texture" id=28]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/13.png" type="Texture" id=29]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/9.png" type="Texture" id=30]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/11.png" type="Texture" id=31]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/17.png" type="Texture" id=32]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/18.png" type="Texture" id=33]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/14.png" type="Texture" id=34]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/16.png" type="Texture" id=35]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/7.png" type="Texture" id=36]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/8.png" type="Texture" id=37]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/15.png" type="Texture" id=38]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/10.png" type="Texture" id=39]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/21.png" type="Texture" id=40]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/23.png" type="Texture" id=41]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/20.png" type="Texture" id=42]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/19.png" type="Texture" id=43]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/22.png" type="Texture" id=44]
-[ext_resource path="res://Assets/Sprites/Stages/Bullet/night/24.png" type="Texture" id=45]
 [ext_resource path="res://Assets/Sprites/Stages/Bullet/night/552.png" type="Texture" id=46]
 [ext_resource path="res://Assets/Sprites/Stages/Bullet/544.png" type="Texture" id=47]
 [ext_resource path="res://Assets/Sprites/Stages/Bullet/549.png" type="Texture" id=48]
@@ -165,52 +141,28 @@ func _process(delta):
 [sub_resource type="AnimatedTexture" id=12]
 frames = 24
 fps = 24.0
-frame_0/texture = ExtResource( 23 )
-frame_1/texture = ExtResource( 24 )
 frame_1/delay_sec = 0.0
-frame_2/texture = ExtResource( 25 )
 frame_2/delay_sec = 0.0
-frame_3/texture = ExtResource( 26 )
 frame_3/delay_sec = 0.0
-frame_4/texture = ExtResource( 27 )
 frame_4/delay_sec = 0.0
-frame_5/texture = ExtResource( 21 )
 frame_5/delay_sec = 0.0
-frame_6/texture = ExtResource( 36 )
 frame_6/delay_sec = 0.0
-frame_7/texture = ExtResource( 37 )
 frame_7/delay_sec = 0.0
-frame_8/texture = ExtResource( 30 )
 frame_8/delay_sec = 0.0
-frame_9/texture = ExtResource( 39 )
 frame_9/delay_sec = 0.0
-frame_10/texture = ExtResource( 31 )
 frame_10/delay_sec = 0.0
-frame_11/texture = ExtResource( 28 )
 frame_11/delay_sec = 0.0
-frame_12/texture = ExtResource( 29 )
 frame_12/delay_sec = 0.0
-frame_13/texture = ExtResource( 34 )
 frame_13/delay_sec = 0.0
-frame_14/texture = ExtResource( 38 )
 frame_14/delay_sec = 0.0
-frame_15/texture = ExtResource( 35 )
 frame_15/delay_sec = 0.0
-frame_16/texture = ExtResource( 32 )
 frame_16/delay_sec = 0.0
-frame_17/texture = ExtResource( 33 )
 frame_17/delay_sec = 0.0
-frame_18/texture = ExtResource( 43 )
 frame_18/delay_sec = 0.0
-frame_19/texture = ExtResource( 42 )
 frame_19/delay_sec = 0.0
-frame_20/texture = ExtResource( 40 )
 frame_20/delay_sec = 0.0
-frame_21/texture = ExtResource( 44 )
 frame_21/delay_sec = 0.0
-frame_22/texture = ExtResource( 41 )
 frame_22/delay_sec = 0.0
-frame_23/texture = ExtResource( 45 )
 frame_23/delay_sec = 0.0
 
 [sub_resource type="GDScript" id=9]
@@ -399,6 +351,8 @@ health = 3.0
 max_health = 3
 spritesheets = [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 7 ) ]
 gravity = 35.0
+velocity = -1000.0
+velocity_active = true
 
 [node name="Powerdown" type="AudioStreamPlayer" parent="HealthSystem" index="0"]
 stream = ExtResource( 10 )
@@ -409,7 +363,6 @@ stream = ExtResource( 11 )
 volume_db = 20.0
 
 [node name="BF" type="Sprite" parent="HealthSystem" index="2"]
-visible = false
 scale = Vector2( 2, 2 )
 texture = ExtResource( 12 )
 

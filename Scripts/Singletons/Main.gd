@@ -11,7 +11,8 @@ var STAGES = {
 	"forever": preload("res://Scenes/Stages/Forever.tscn"),
 	"foreverremix": preload("res://Scenes/Stages/ForeverRemix.tscn"),
 	"castle-grounds": preload("res://Scenes/Stages/CastleGrounds.tscn"),
-	"bullet": preload("res://Scenes/Stages/Bullet.tscn")
+	"bullet": preload("res://Scenes/Stages/Bullet.tscn"),
+	"beef-serinate": preload("res://Scenes/Stages/BeefSerinate.tscn"),
 }
 
 var CHARACTERS = {
@@ -26,7 +27,10 @@ var CHARACTERS = {
 	"mario-hammer": preload("res://Scenes/Objects/Characters/Mario-Hammer.tscn"),
 	"bf-forever": preload("res://Scenes/Objects/Characters/Boyfriend-Forever.tscn"),
 	"bullet-bill": preload("res://Scenes/Objects/Characters/Bullet-Bill.tscn"),
-	"bf-lakitu": preload("res://Scenes/Objects/Characters/Boyfriend-Lakitu.tscn")
+	"bf-lakitu": preload("res://Scenes/Objects/Characters/Boyfriend-Lakitu.tscn"),
+	# Beef Serinate
+	"creffy-bs": preload("res://Scenes/Objects/Characters/Creffy-BeefSerinate.tscn"),
+	"drift-bs": preload("res://Scenes/Objects/Characters/Drift-BeefSerinate.tscn"),
 }
 
 var noteSprites = {}
@@ -80,7 +84,7 @@ func change_scene(path, transition=true):
 	get_tree().current_scene.change_scene(path, transition)
 	
 func change_to_main_menu():
-	var menuSong = load("res://Assets/Music/freakyMenu.ogg")
+	var menuSong = load("res://Assets/Music/serinateMenu.ogg")
 	if (Conductor.MusicStream.stream != menuSong):
 		Conductor.play_song(menuSong, 102, 1)
 	
@@ -147,6 +151,9 @@ func change_playstate(song, difficulty, speed = 1, storySongs = null, transition
 	elif scene.name == "CastleGrounds":
 		Main.curNoteSkin = "Runouw"
 		Main.load_note_sprites(Main.curNoteSkin)
+	elif scene.name == "BeefSerinate":
+		Main.curNoteSkin = "BeefSerinate"
+		Main.load_note_sprites(Main.curNoteSkin)		
 	else:
 		Main.curNoteSkin = "Default"
 		Main.load_note_sprites(Main.curNoteSkin)

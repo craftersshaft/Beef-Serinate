@@ -21,6 +21,11 @@ var options = {
 	"MISC": {
 		"FPS CAP": ["fpsCap", "Fps cap lmao", true, "fps"],
 	},
+	"INACCESSIBILITY":
+	 {
+		"STRUMBAR SWAP": ["serinateStrum", "Swaps Down and Right. Have Fun.", false],
+		"NOTE NOISES": ["noteNoises", "No vocals, just noises.", false],
+	},	
 	"CONTROLS": {
 		"LEFT": ["left", "", true, "key"],
 		"DOWN": ["down", "", true, "key"],

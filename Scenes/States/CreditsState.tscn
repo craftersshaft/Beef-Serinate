@@ -51,9 +51,6 @@ text = "Codist
 Creator of FNF Godot"
 align = 2
 valign = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Credits" type="Label" parent="Info"]
 margin_left = 350.0

@@ -23,6 +23,9 @@ func note_miss(note_type, passed):
 	
 	health -= 10.0
 	shake_health()
+	
+func note_hit(note_type, passed):
+	health += 1.0
 
 func shake_health(time = 0.15, intensity = 8):
 	healthShakeTimer = time
@@ -48,7 +51,7 @@ func health_bar_process(delta):
 	if (Input.is_action_just_pressed("reset")):
 		health = 0
 	
-	if (health <= 0):
+	if (health <= 0 && !Settings.pussyMode):
 		Conductor.MusicStream.stop()
 		Conductor.VocalStream.stop()
 		

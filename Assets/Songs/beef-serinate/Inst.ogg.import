@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Inst.ogg-11730bde86defefcb706427e94f6d4c5.oggstr"
+
+[deps]
+
+source_file="res://Assets/Songs/beef-serinate/Inst.ogg"
+dest_files=[ "res://.import/Inst.ogg-11730bde86defefcb706427e94f6d4c5.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

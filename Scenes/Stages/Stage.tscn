@@ -19,7 +19,7 @@ position = Vector2( 640, 566 )
 [node name="Rating" parent="Positions" index="3"]
 position = Vector2( 770, 193 )
 
-[node name="Camera" parent="." index="3"]
+[node name="Camera" parent="." index="4"]
 zoom = Vector2( 1.1, 1.1 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Background" index="0"]

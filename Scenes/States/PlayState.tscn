@@ -264,9 +264,6 @@ texture_progress = ExtResource( 5 )
 fill_mode = 1
 tint_under = Color( 1, 0, 0, 1 )
 tint_progress = Color( 0.0784314, 1, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="BG" type="Sprite" parent="HUD/HudElements/HealthBar"]
 show_behind_parent = true
